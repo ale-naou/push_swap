@@ -6,7 +6,7 @@
 #    By: ale-naou <ale-naou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/23 13:50:13 by ale-naou          #+#    #+#              #
-#    Updated: 2016/02/25 14:50:45 by ale-naou         ###   ########.fr        #
+#    Updated: 2016/02/25 18:37:08 by ale-naou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,11 +16,11 @@ OBJ_PATH	= ./obj/
 INC_PATH	= ./include/
 LIB_PATH	= ./lib
 
-NAME		= fdf
+NAME		= push_swap 
 CC			= gcc
 CFLAGS		= -Wall -Werror	-Wextra
 
-SRC_NAME	= main.c 
+SRC_NAME	= main.c push.c swap.c rotate.c rev_rotate.c
 OBJ_NAME	= $(SRC_NAME.c=.o)
 LIB_NAME	= libft.a
 
