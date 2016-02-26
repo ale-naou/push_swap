@@ -6,11 +6,19 @@
 /*   By: ale-naou <ale-naou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/25 15:27:42 by ale-naou          #+#    #+#             */
-/*   Updated: 2016/02/25 19:39:46 by ale-naou         ###   ########.fr       */
+/*   Updated: 2016/02/26 18:12:27 by ale-naou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	init(t_env *e)
+{
+	e->a_start = NULL;
+	e->b_start = NULL;
+	e->a_end = NULL;
+	e->b_end = NULL;
+}
 
 int		main(int ac, char **av)
 {
@@ -18,6 +26,7 @@ int		main(int ac, char **av)
 	t_struct	*current;
 	int			i;
 
+	init(&e);
 	if (ac < 2)
 	{
 		ft_putendl("No enough args");
@@ -39,11 +48,5 @@ int		main(int ac, char **av)
 		}
 	}
 	e.a_end = current;
-	e.a_end->next = e.a_start;
-	while (e.a_start != e.a_end)
-	{
-		ft_putnbr(e.a_start->n);
-		e.a_start = e.a_start->next;
-	}
 	return (0);
 }
