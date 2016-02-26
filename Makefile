@@ -6,7 +6,7 @@
 #    By: ale-naou <ale-naou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/23 13:50:13 by ale-naou          #+#    #+#              #
-#    Updated: 2016/02/26 17:06:38 by ale-naou         ###   ########.fr        #
+#    Updated: 2016/02/26 18:29:57 by ale-naou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ NAME		= push_swap
 CC			= gcc
 CFLAGS		= -Wall -Werror	-Wextra
 
-SRC_NAME	= main.c push.c print.c swap.c rotate.c rev_rotate.c
+SRC_NAME	= main.c push.c print.c swap.c rotate.c rev_rotate.c	\
+			  move_manag.c
 OBJ_NAME	= $(SRC_NAME.c=.o)
 LIB_NAME	= libft.a
 

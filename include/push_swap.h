@@ -6,7 +6,7 @@
 /*   By: ale-naou <ale-naou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/25 15:00:35 by ale-naou          #+#    #+#             */
-/*   Updated: 2016/02/26 18:06:27 by ale-naou         ###   ########.fr       */
+/*   Updated: 2016/02/26 20:08:58 by ale-naou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@
 # include <unistd.h>
 # include "../lib/include/libft.h"
 
+typedef	struct		s_moves
+{
+	char 			*str;
+	struct s_moves	*next;
+}					t_moves;
+
 typedef struct		s_struct
 {
 	int				n;
@@ -25,10 +31,12 @@ typedef struct		s_struct
 
 typedef struct		s_env
 {
-	t_struct	*a_start;
-	t_struct	*b_start;
-	t_struct	*a_end;
-	t_struct	*b_end;
+	t_struct		*a_start;
+	t_struct		*b_start;
+	t_struct		*a_end;
+	t_struct		*b_end;
+	t_moves			*move_start;
+	t_moves			*move_end;
 }					t_env;
 
 
@@ -63,7 +71,10 @@ void		rev_rotate_a(t_env *e);
 void		rev_rotate_b(t_env *e);
 void		rev_rotate_both(t_env *e);
 
+
 int			sort(t_env *e);
-void		print(t_env *e);
+void		add_move(t_env *e, char *str);
+void		print_stack(t_env *e);
+void		print_moves(t_env *e);
 
 #endif

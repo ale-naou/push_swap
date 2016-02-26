@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   move_manag.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ale-naou <ale-naou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/25 17:41:25 by ale-naou          #+#    #+#             */
-/*   Updated: 2016/02/26 18:27:30 by ale-naou         ###   ########.fr       */
+/*   Created: 2016/02/26 18:29:58 by ale-naou          #+#    #+#             */
+/*   Updated: 2016/02/26 20:08:56 by ale-naou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void		push_to_b(t_env *e)
+void		add_move(t_env *e, char *str)
 {
-	t_struct	*tmp;
+	 t_moves	*current;
 
-	tmp = e->a_start;
-	e->a_start = e->a_start->next;
-	if (e->b_end == NULL)
-		e->b_end = tmp;
-	tmp->next = e->b_start;
-	e->b_start = tmp;
-	add_move(e, "pb");
-}
-
-void		push_to_a(t_env *e)
-{
-	t_struct	*tmp;
-
-	tmp = e->b_start;
-	e->b_start = e->b_start->next;
-	tmp->next = e->a_start;
-	e->a_start = tmp;
-	add_move(e, "pa");
+	if (!(current = (t_moves *)malloc(sizeof(t_moves))))
+		exit (0);
+	if (e->move_end != NULL)
+		e->move_end->next = current;
+	if (e->move_start == NULL)
+		e->move_start = current;
+	current->str = str;
+	e->move_end = current;
+	current->next = NULL;
 }

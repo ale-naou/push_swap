@@ -6,13 +6,31 @@
 /*   By: ale-naou <ale-naou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/26 13:25:26 by ale-naou          #+#    #+#             */
-/*   Updated: 2016/02/26 18:10:07 by ale-naou         ###   ########.fr       */
+/*   Updated: 2016/02/26 20:09:00 by ale-naou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print(t_env *e)
+void	print_moves(t_env *e)
+{
+	t_moves		*tmp;
+
+	tmp = e->move_start;
+	while (tmp != NULL)
+	{
+		ft_putstr(tmp->str);
+		if (tmp->next == NULL)
+		{
+			ft_putchar('\n');
+			break ;
+		}
+		ft_putchar(' ');
+		tmp = tmp->next;
+	}
+}
+
+void	print_stack(t_env *e)
 {
 	t_struct	*tmp;
 
