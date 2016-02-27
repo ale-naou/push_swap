@@ -6,7 +6,7 @@
 /*   By: ale-naou <ale-naou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/25 15:27:42 by ale-naou          #+#    #+#             */
-/*   Updated: 2016/02/26 20:08:54 by ale-naou         ###   ########.fr       */
+/*   Updated: 2016/02/27 20:40:34 by ale-naou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,35 @@ void	init(t_env *e)
 	e->a_end = NULL;
 	e->b_end = NULL;
 	e->move_start = NULL;
+	e->i = 0;
+}
+
+void	check_values_debug(t_env *e)
+{
+	print_stack(e);
+	print_moves(e);
+	ft_putstr("e->list_len : ");
+	ft_putnbr(e->list_len);
+	ft_putchar('\n');
+	ft_putstr("e->list_med : ");
+	ft_putnbr(e->list_med);
+	ft_putchar('\n');
+	ft_putstr("A sorted : ");
+	ft_putnbr(a_sort(e));
+	ft_putchar('\n');
+	ft_putstr("B sorted : ");
+	ft_putnbr(b_sort(e));
+	ft_putchar('\n');
+	ft_putstr("Stacks sorted : ");
+	ft_putnbr(is_sort(e));
+	ft_putchar('\n');
+	ft_putendl("-------------------------------");
 }
 
 int		main(int ac, char **av)
 {
 	t_env		e;
 	t_struct	*current;
-	int			i;
 
 	init(&e);
 	if (ac < 2)
@@ -33,15 +55,14 @@ int		main(int ac, char **av)
 		ft_putendl("No enough args");
 		return (-1);
 	}
-	i = 0;
 	if (!(current = (t_struct *)malloc(sizeof(t_struct))))
 		return (-1);
 	e.a_start = current;
-	while (++i < ac)
+	while (++e.i < ac)
 	{
-		current->n = ft_atoi(av[i]);
+		current->n = ft_atoi(av[e.i]);
 		current->next = NULL;
-		if (i + 1 < ac)
+		if (e.i + 1 < ac)
 		{
 			if (!(current->next = (t_struct *)malloc(sizeof(t_struct))))
 				return (-1);
@@ -49,20 +70,6 @@ int		main(int ac, char **av)
 		}
 	}
 	e.a_end = current;
-	push_to_b(&e);
-	push_to_b(&e);
-	push_to_b(&e);
-	push_to_b(&e);
-	push_to_a(&e);
-	rotate_both(&e);
-	swap_a(&e);
-	rotate_a(&e);
-	swap_b(&e);
-	rotate_b(&e);
-	rev_rotate_a(&e);
-	rev_rotate_b(&e);
-	swap_b(&e);
-	print_stack(&e);
-	print_moves(&e);
+	algo(&e);
 	return (0);
 }

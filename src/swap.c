@@ -6,7 +6,7 @@
 /*   By: ale-naou <ale-naou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/25 17:43:04 by ale-naou          #+#    #+#             */
-/*   Updated: 2016/02/26 18:29:00 by ale-naou         ###   ########.fr       */
+/*   Updated: 2016/02/27 18:56:45 by ale-naou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ void		swap_both(t_env *e)
 	tmp_a = e->a_start->next->n;
 	e->a_start->next->n = e->a_start->n;
 	e->a_start->n = tmp_a;
-	
 	tmp_b = e->b_start->next->n;
 	e->b_start->next->n = e->b_start->n;
 	e->b_start->n = tmp_b;

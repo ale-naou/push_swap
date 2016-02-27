@@ -6,7 +6,7 @@
 /*   By: ale-naou <ale-naou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/25 15:00:35 by ale-naou          #+#    #+#             */
-/*   Updated: 2016/02/26 20:08:58 by ale-naou         ###   ########.fr       */
+/*   Updated: 2016/02/27 20:40:39 by ale-naou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,13 @@ typedef struct		s_env
 	t_struct		*b_end;
 	t_moves			*move_start;
 	t_moves			*move_end;
+	
+	int				list_len;
+	int				list_med;
+	int				list_min;
+	int				list_max;
+	int				pos_min;
+	int				i;
 }					t_env;
 
 
@@ -72,9 +79,18 @@ void		rev_rotate_b(t_env *e);
 void		rev_rotate_both(t_env *e);
 
 
-int			sort(t_env *e);
+/*
+**	fonctions checking stacks sorting
+*/
+
+int			is_sort(t_env *e);
+int			a_sort(t_env *e);
+int			b_sort(t_env *e);
+
 void		add_move(t_env *e, char *str);
 void		print_stack(t_env *e);
 void		print_moves(t_env *e);
+void		algo(t_env *e);
 
+void		check_values_debug(t_env *e);
 #endif
