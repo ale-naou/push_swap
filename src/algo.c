@@ -6,13 +6,13 @@
 /*   By: ale-naou <ale-naou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/27 14:07:31 by ale-naou          #+#    #+#             */
-/*   Updated: 2016/02/27 20:40:36 by ale-naou         ###   ########.fr       */
+/*   Updated: 2016/02/28 19:46:36 by ale-naou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	def_min(t_env *e)
+static void	def_min_max(t_env *e)
 {
 	t_struct	*tmp;
 
@@ -20,10 +20,8 @@ static void	def_min(t_env *e)
 	tmp = e->a_start;
 	while (tmp != NULL)
 	{
-		if (e->i == 1)
-			e->list_min = tmp->n;
-		if (e->i == 1)
-			e->list_max = tmp->n;
+		e->i == 1 ? e->list_min = tmp->n : 0;
+		e->i == 1 ? e->list_max = tmp->n : 0;
 		tmp->n < e->list_min ? e->list_min = tmp->n : 0;
 		tmp->n > e->list_max ? e->list_max = tmp->n : 0;
 		e->i++;
@@ -46,7 +44,7 @@ void		algo(t_env *e)
 	e->i = 0;
 	while (is_sort(e) != 3 || e->b_start != NULL)
 	{
-		def_min(e);
+		def_min_max(e);
 		check_values_debug(e);
 		if (e->list_len == 3)
 			e->list_max == e->a_start->n ? rotate_a(e) : 0;
@@ -68,5 +66,6 @@ void		algo(t_env *e)
 			while (e->b_start != NULL)
 				push_to_a(e);
 	}
+	def_min_max(e);
 	check_values_debug(e);
 }

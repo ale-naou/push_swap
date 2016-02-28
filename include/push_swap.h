@@ -6,7 +6,7 @@
 /*   By: ale-naou <ale-naou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/25 15:00:35 by ale-naou          #+#    #+#             */
-/*   Updated: 2016/02/27 20:40:39 by ale-naou         ###   ########.fr       */
+/*   Updated: 2016/02/28 19:46:39 by ale-naou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,9 @@ typedef struct		s_env
 	int				list_max;
 	int				pos_min;
 	int				i;
+	int				j;
+	int				color_switch;
+	int				everymove_switch;
 }					t_env;
 
 
@@ -92,5 +95,6 @@ void		print_stack(t_env *e);
 void		print_moves(t_env *e);
 void		algo(t_env *e);
 
+void		error(int c);
 void		check_values_debug(t_env *e);
 #endif
