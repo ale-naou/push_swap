@@ -6,7 +6,7 @@
 /*   By: ale-naou <ale-naou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/25 15:00:35 by ale-naou          #+#    #+#             */
-/*   Updated: 2016/02/28 19:46:39 by ale-naou         ###   ########.fr       */
+/*   Updated: 2016/03/04 19:58:18 by ale-naou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,9 @@ typedef struct		s_env
 	int				pos_min;
 	int				i;
 	int				j;
+	int				k;
 	int				color_switch;
-	int				everymove_switch;
+	int				move_switch;
 }					t_env;
 
 
