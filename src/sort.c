@@ -6,7 +6,7 @@
 /*   By: ale-naou <ale-naou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/27 13:27:15 by ale-naou          #+#    #+#             */
-/*   Updated: 2016/03/04 19:35:25 by ale-naou         ###   ########.fr       */
+/*   Updated: 2016/03/05 17:38:50 by ale-naou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		b_sort(t_env *e)
 	tmp = e->b_start;
 	if (tmp == NULL || tmp->next == NULL)
 		return (2);
-	while (tmp->next != NULL)
+	while (tmp != NULL && tmp->next != NULL)
 	{
 		if (tmp->n < tmp->next->n)
 			return (0);
@@ -35,7 +35,7 @@ int		a_sort(t_env *e)
 	tmp = e->a_start;
 	if (tmp == NULL || tmp->next == NULL)
 		return (1);
-	while (tmp->next != NULL)
+	while (tmp != NULL && tmp->next != NULL)
 	{
 		if (tmp->n > tmp->next->n)
 			return (0);

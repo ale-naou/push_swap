@@ -6,7 +6,7 @@
 /*   By: ale-naou <ale-naou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/28 18:57:38 by ale-naou          #+#    #+#             */
-/*   Updated: 2016/02/28 21:03:15 by ale-naou         ###   ########.fr       */
+/*   Updated: 2016/03/05 17:27:46 by ale-naou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,6 @@
 void	error(int c)
 {
 	if (c == 1)
-		ft_putendl("Arguments or commands unvalid");
+		ft_putendl("Error");
+	exit (1);
 }

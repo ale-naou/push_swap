@@ -6,7 +6,7 @@
 /*   By: ale-naou <ale-naou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/27 14:07:31 by ale-naou          #+#    #+#             */
-/*   Updated: 2016/03/04 19:58:22 by ale-naou         ###   ########.fr       */
+/*   Updated: 2016/03/05 18:09:34 by ale-naou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void	def_min_max(t_env *e)
 void		algo(t_env *e)
 {
 	e->i = 0;
-	while (is_sort(e) != 3 || e->b_start != NULL)
+	while (is_sort(e) != 3)
 	{
 		def_min_max(e);
 		check_values_debug(e);
