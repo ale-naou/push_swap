@@ -6,7 +6,7 @@
 /*   By: ale-naou <ale-naou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/25 15:00:35 by ale-naou          #+#    #+#             */
-/*   Updated: 2016/03/04 19:58:18 by ale-naou         ###   ########.fr       */
+/*   Updated: 2016/03/06 13:25:31 by ale-naou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ typedef struct		s_env
 	int				i;
 	int				j;
 	int				k;
-	int				color_switch;
-	int				move_switch;
+	int				color;
+	int				stack_display;
 }					t_env;
 
 
@@ -91,11 +91,20 @@ int			is_sort(t_env *e);
 int			a_sort(t_env *e);
 int			b_sort(t_env *e);
 
-void		add_move(t_env *e, char *str);
+/*
+**	Display fonctions
+*/
+
 void		print_stack(t_env *e);
 void		print_moves(t_env *e);
-void		algo(t_env *e);
+void		add_move(t_env *e, char *str);
 
+
+void		algo(t_env *e);
+void		sort_last(t_env *e);
+
+
+void		read_args(t_env *e, int ac, char **av);
 void		error(int c);
 void		check_values_debug(t_env *e);
 #endif

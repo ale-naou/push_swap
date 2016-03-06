@@ -6,12 +6,34 @@
 /*   By: ale-naou <ale-naou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/27 14:07:31 by ale-naou          #+#    #+#             */
-/*   Updated: 2016/03/05 18:14:08 by ale-naou         ###   ########.fr       */
+/*   Updated: 2016/03/06 13:25:36 by ale-naou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+void		sort_last(t_env *e)
+{
+	int			len;
+	t_struct 	*tmp;
+
+	len = 0;
+	tmp = e->a_start;
+	while (tmp->next->next != NULL)
+	{
+		tmp = tmp->next;
+		len++;
+	}
+	len += 2;
+	if (len > 4 && tmp->n > tmp->next->n)
+	{
+		rev_rotate_a(e);
+		rev_rotate_a(e);
+		swap_a(e);
+		rotate_a(e);
+		rotate_a(e);
+	}
+}
 static void	def_min_max(t_env *e)
 {
 	t_struct	*tmp;

@@ -6,7 +6,7 @@
 /*   By: ale-naou <ale-naou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/25 15:27:42 by ale-naou          #+#    #+#             */
-/*   Updated: 2016/03/05 18:14:13 by ale-naou         ###   ########.fr       */
+/*   Updated: 2016/03/06 13:25:35 by ale-naou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ static void	init(t_env *e)
 	e->i = 0;
 	e->j = 0;
 	e->k = 0;
-	e->color_switch = 0;
-	e->move_switch = 0;
+	e->color = 0;
+	e->stack_display = 0;
 }
 
 static void	aff_help(void)
@@ -71,12 +71,11 @@ static int	create_list(t_env *e, int ac, char **av)
 	t_struct	*tmp;
 
 	tmp = NULL;
-	e->i = e->color_switch + e->move_switch;
+	e->i = e->color + e->stack_display;
 	if (av[e->i + 1] != NULL)
 		if (!(tmp = (t_struct *)malloc(sizeof(t_struct))))
 			return (-1);
 	e->a_start = tmp;
-	ft_putendl(av[e->i + 1]);
 	while (++e->i < ac)
 	{
 		tmp->n = ft_atoi(av[e->i]);
@@ -92,9 +91,9 @@ static int	create_list(t_env *e, int ac, char **av)
 	return (0);
 }
 
-static void	read_args(t_env *e, int ac, char **av)
+/*static void	read_args(t_env *e, int ac, char **av)
 {
-	while (++e->i < 3 && e->i <= ac)
+	while (++e->i < 3 && e->i < ac)
 	{
 		if (ft_strcmp(av[e->i], "-c") == 0) 
 			e->color_switch = 1;	
@@ -113,7 +112,7 @@ static void	read_args(t_env *e, int ac, char **av)
 			if (ft_strcmp(av[e->k], av[e->i]) == 0) //
 				error(1); //
 	}
-}
+}*/
 
 int			main(int ac, char **av)
 {
@@ -126,6 +125,7 @@ int			main(int ac, char **av)
 		init(&e);
 		read_args(&e, ac, av);
 		create_list(&e, ac, av);
+		sort_last(&e);
 		algo(&e);
 	}
 	return (0);
