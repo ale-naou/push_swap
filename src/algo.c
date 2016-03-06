@@ -6,7 +6,7 @@
 /*   By: ale-naou <ale-naou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/27 14:07:31 by ale-naou          #+#    #+#             */
-/*   Updated: 2016/03/06 13:25:36 by ale-naou         ###   ########.fr       */
+/*   Updated: 2016/03/06 17:58:21 by ale-naou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,29 @@
 void		sort_last(t_env *e)
 {
 	int			len;
-	t_struct 	*tmp;
+	t_struct	*tmp;
 
 	len = 0;
 	tmp = e->a_start;
-	while (tmp->next->next != NULL)
+	if (tmp && tmp->next && tmp->next->next)
 	{
-		tmp = tmp->next;
-		len++;
-	}
-	len += 2;
-	if (len > 4 && tmp->n > tmp->next->n)
-	{
-		rev_rotate_a(e);
-		rev_rotate_a(e);
-		swap_a(e);
-		rotate_a(e);
-		rotate_a(e);
+		while (tmp->next->next != NULL)
+		{
+			tmp = tmp->next;
+			len++;
+		}
+		len += 2;
+		if (len > 4 && tmp->n > tmp->next->n)
+		{
+			rev_rotate_a(e);
+			rev_rotate_a(e);
+			swap_a(e);
+			rotate_a(e);
+			rotate_a(e);
+		}
 	}
 }
+
 static void	def_min_max(t_env *e)
 {
 	t_struct	*tmp;
@@ -67,7 +71,6 @@ void		algo(t_env *e)
 	while (is_sort(e) != 3)
 	{
 		def_min_max(e);
-		check_values_debug(e);
 		if (e->list_len == 3)
 			e->list_max == e->a_start->n ? rotate_a(e) : 0;
 		if (e->list_min == e->a_start->next->n)
@@ -89,5 +92,4 @@ void		algo(t_env *e)
 				push_to_a(e);
 	}
 	def_min_max(e);
-	check_values_debug(e);
 }

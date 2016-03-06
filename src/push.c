@@ -6,7 +6,7 @@
 /*   By: ale-naou <ale-naou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/25 17:41:25 by ale-naou          #+#    #+#             */
-/*   Updated: 2016/03/05 15:31:07 by ale-naou         ###   ########.fr       */
+/*   Updated: 2016/03/06 19:10:32 by ale-naou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void		push_to_b(t_env *e)
 		tmp->next = e->b_start;
 		e->b_start = tmp;
 		add_move(e, "pb");
+		if (e->stack_display == 1)
+			print_stack(e);
 	}
 }
 
@@ -39,5 +41,7 @@ void		push_to_a(t_env *e)
 		tmp->next = e->a_start;
 		e->a_start = tmp;
 		add_move(e, "pa");
+		if (e->stack_display == 1)
+			print_stack(e);
 	}
 }

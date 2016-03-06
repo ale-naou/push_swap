@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libfth                                            :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ale-naou <ale-naou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/26 17:35:41 by ale-naou          #+#    #+#             */
-/*   Updated: 2016/02/13 18:50:32 by ale-naou         ###   ########.fr       */
+/*   Updated: 2016/03/06 18:19:22 by ale-naou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ char	*ft_strmap(const char *s, char (*f)(char));
 char	*ft_strmapi(const char *s, char (*f)(unsigned int, char));
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
 int		ft_atoi(const char *str);
+double	ft_atof(const char *str);
+int		ft_isblank(char c);
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
 int		ft_isascii(int c);

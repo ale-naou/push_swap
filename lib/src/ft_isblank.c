@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   ft_isblank.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ale-naou <ale-naou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: wwatkins <wwatkins@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/28 18:57:38 by ale-naou          #+#    #+#             */
-/*   Updated: 2016/03/06 18:03:11 by ale-naou         ###   ########.fr       */
+/*   Created: 2016/01/03 12:15:05 by wwatkins          #+#    #+#             */
+/*   Updated: 2016/01/03 12:23:09 by wwatkins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	error(t_env *e, int c)
+int		ft_isblank(char c)
 {
-	(void)e;
-	if (c == 1)
-		ft_putendl("Error");
-	exit(1);
+	return ((c == ' ' || c == '\n' || c == '\v' ||
+			c == '\t' || c == '\r' || c == '\f'));
 }

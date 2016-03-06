@@ -6,39 +6,11 @@
 /*   By: ale-naou <ale-naou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/25 15:27:42 by ale-naou          #+#    #+#             */
-/*   Updated: 2016/03/06 13:25:35 by ale-naou         ###   ########.fr       */
+/*   Updated: 2016/03/06 18:13:11 by ale-naou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	check_values_debug(t_env *e)
-{
-	print_stack(e);
-	print_moves(e);
-	ft_putstr("e->list_min : ");
-	ft_putnbr(e->list_min);
-	ft_putchar('\n');
-	ft_putstr("e->list_max : ");
-	ft_putnbr(e->list_max);
-	ft_putchar('\n');
-	ft_putstr("e->list_len : ");
-	ft_putnbr(e->list_len);
-	ft_putchar('\n');
-	ft_putstr("e->list_med : ");
-	ft_putnbr(e->list_med);
-	ft_putchar('\n');
-	ft_putstr("A sorted : ");
-	ft_putnbr(a_sort(e));
-	ft_putchar('\n');
-	ft_putstr("B sorted : ");
-	ft_putnbr(b_sort(e));
-	ft_putchar('\n');
-	ft_putstr("Stacks sorted : ");
-	ft_putnbr(is_sort(e));
-	ft_putchar('\n');
-	ft_putendl("-------------------------------");
-}
 
 static void	init(t_env *e)
 {
@@ -74,45 +46,22 @@ static int	create_list(t_env *e, int ac, char **av)
 	e->i = e->color + e->stack_display;
 	if (av[e->i + 1] != NULL)
 		if (!(tmp = (t_struct *)malloc(sizeof(t_struct))))
-			return (-1);
+			error(e, 1);
 	e->a_start = tmp;
 	while (++e->i < ac)
 	{
 		tmp->n = ft_atoi(av[e->i]);
 		tmp->next = NULL;
-		if (e->i + 1 < ac)			
+		if (e->i + 1 < ac)
 		{
 			if (!(tmp->next = (t_struct *)malloc(sizeof(t_struct))))
-				return (-1);
+				error(e, 1);
 			tmp = tmp->next;
 		}
 	}
 	e->a_end = tmp;
 	return (0);
 }
-
-/*static void	read_args(t_env *e, int ac, char **av)
-{
-	while (++e->i < 3 && e->i < ac)
-	{
-		if (ft_strcmp(av[e->i], "-c") == 0) 
-			e->color_switch = 1;	
-		if (ft_strcmp(av[e->i], "-s") == 0)
-			e->move_switch = 1;	
-	}
-	e->i = e->color_switch + e->move_switch;
-	while (++e->i < ac)
-	{
-		e->j = -1;
-		while (av[e->i][++e->j])
-			if ((ft_isdigit(av[e->i][e->j]) == 0) && av[e->i][0] != '-')
-				error(1);
-		e->k = e->i;
-		while (++e->k < ac)			// Verif a faire apres avoir create pile
-			if (ft_strcmp(av[e->k], av[e->i]) == 0) //
-				error(1); //
-	}
-}*/
 
 int			main(int ac, char **av)
 {
@@ -125,8 +74,10 @@ int			main(int ac, char **av)
 		init(&e);
 		read_args(&e, ac, av);
 		create_list(&e, ac, av);
+		e.stack_display == 1 ? print_stack(&e) : 0;
 		sort_last(&e);
 		algo(&e);
+		print_moves(&e);
 	}
 	return (0);
 }
