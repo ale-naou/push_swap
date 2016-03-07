@@ -6,7 +6,7 @@
 /*   By: ale-naou <ale-naou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/27 14:07:31 by ale-naou          #+#    #+#             */
-/*   Updated: 2016/03/06 17:58:21 by ale-naou         ###   ########.fr       */
+/*   Updated: 2016/03/07 16:53:30 by ale-naou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void		sort_last(t_env *e)
 	{
 		while (tmp->next->next != NULL)
 		{
+			if (tmp->n > tmp->next->n)
+				break ;
 			tmp = tmp->next;
 			len++;
 		}
