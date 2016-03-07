@@ -6,7 +6,7 @@
 /*   By: ale-naou <ale-naou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/06 12:41:10 by ale-naou          #+#    #+#             */
-/*   Updated: 2016/03/07 12:27:50 by ale-naou         ###   ########.fr       */
+/*   Updated: 2016/03/07 13:43:55 by ale-naou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	check_args(t_env *e, int ac, char **av)
 {
 	e->check_int = 0;
-	e->i = e->color + e->stack_display;
+	e->i = (e->color + e->stack_display);
 	while (++e->i < ac)
 	{
 		e->j = -1;
@@ -47,16 +47,6 @@ static void	check_commands(t_env *e, int ac, char **av)
 			e->color = 1;
 		else if (ft_strcmp(av[e->i], "-s") == 0)
 			e->stack_display = 1;
-		else if (ft_strcmp(av[e->i], "-cs") == 0)
-		{
-			e->color = 1;
-			e->stack_display = 1;
-		}
-		else if (ft_strcmp(av[e->i], "-sc") == 0)
-		{
-			e->color = 1;
-			e->stack_display = 1;
-		}
 	}
 }
 

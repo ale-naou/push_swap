@@ -6,7 +6,7 @@
 /*   By: ale-naou <ale-naou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/25 15:27:42 by ale-naou          #+#    #+#             */
-/*   Updated: 2016/03/06 18:13:11 by ale-naou         ###   ########.fr       */
+/*   Updated: 2016/03/07 13:43:53 by ale-naou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	init(t_env *e)
 static void	aff_help(void)
 {
 	ft_putchar('	');
-	ft_putendl("Usage	: ./push_swap [-c] [-v] Arguments list.");
+	ft_putendl("Usage	: ./push_swap [-c] [-s] Arguments list.");
 	ft_putchar('	');
 	ft_putendl("[-c]	: Add color on moves.");
 	ft_putchar('	');
